@@ -1,0 +1,46 @@
+-- Crear la base de datos
+CREATE DATABASE cuentasporpaga;
+
+-- Usar la base de datos
+USE cuentasporpagar;
+
+-- Crear la tabla 'asientos_contables'
+CREATE TABLE asientos_contables (
+    IDentificiadorasiento INT AUTO_INCREMENT PRIMARY KEY,
+    descripcion VARCHAR(255) NOT NULL,
+    identificador_tipo_inventario INT,
+    cuenta_contable VARCHAR(50),
+    tipo_de_movimiento ENUM('DB', 'CR') NOT NULL,
+    fecha_asiento DATE NOT NULL,
+    monto_asiento DECIMAL(15, 2) NOT NULL,
+    estado ENUM('Activo', 'Inactivo') NOT NULL
+);
+
+-- Crear la tabla 'concepto_de_pagos'
+CREATE TABLE concepto_de_pagos (
+    identificador INT AUTO_INCREMENT PRIMARY KEY,
+    descripcion VARCHAR(255) NOT NULL,
+    estado ENUM('Activo', 'Inactivo') NOT NULL
+);
+
+-- Crear la tabla 'proveedores'
+CREATE TABLE proveedores (
+    identificador INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(255) NOT NULL,
+    tipo_de_persona ENUM('Fisica', 'Juridica') NOT NULL,
+    cedula_rnc VARCHAR(20) NOT NULL,
+    balance DECIMAL(15, 2) NOT NULL DEFAULT 0.00,
+    estado ENUM('Activo', 'Inactivo') NOT NULL
+);
+
+-- Crear la tabla 'entrada_de_documentos'
+CREATE TABLE entrada_de_documentos (
+    numero_documento INT AUTO_INCREMENT PRIMARY KEY,
+    numero_factura_a_pagar INT NOT NULL,
+    fecha_document DATE NOT NULL,
+    monto DECIMAL(15, 2) NOT NULL,
+    fecha_registro DATE NOT NULL,
+    proveedor INT,
+    estado ENUM('Pendiente', 'Pagado') NOT NULL,
+    FOREIGN KEY (proveedor) REFERENCES proveedores(identificador)
+);

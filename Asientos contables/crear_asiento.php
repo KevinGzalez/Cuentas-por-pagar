@@ -1,9 +1,9 @@
 <?php
 define('API_LOCAL_URL', 'http://localhost:5038/api/EntradaDeDocumentos/Pendientes');
 define('API_ASIENTOS_URL', 'http://localhost:5038/api/AsientosContables');
-define('API_CONTABILIDAD_URL', 'https://iso810-contabilidad.azurewebsites.net/api/EntradaContable');
+define('API_CONTABILIDAD_URL', '');
 
-$token_bearer = "eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiS2V2aW4iLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjY3ZjVjNjkyYTI2MjkxZDFkNjgyZTM1OSIsIlNpc3RlbWFBdXhpbGlhcklkIjoiNjdkMGEwNDY3ZGEzYTNmMDQzZDc5NTI2IiwibmJmIjoxNzQ0Njc2MTIwLCJleHAiOjE3NDcyNjgxMjB9.ejIIg8RCfqVJBb53FQJiWJxJGZ18Rwf9SYATf6QJd_4"; 
+$token_bearer = ""; 
 
 $descripcion = "";
 $fechaAsiento = date('Y-m-d');
